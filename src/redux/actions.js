@@ -6,7 +6,12 @@ export const fetchVideoFiles = (id) => {
   return dispatch => {
     return client.get(`/watch/${id}`)
       .then(res => {
-        return dispatch({type: 'FETCH_FILE_SUCCESS', message: res.data.message, files: res.data.files})
+        return dispatch({
+          type: 'FETCH_FILE_SUCCESS',
+          message: res.data.message,
+          files: res.data.files,
+          title: res.data.title
+        })
       })
       .catch(err => {
         return dispatch({type: 'FETCH_FILE_FAILURE', error: err.response.data.message})

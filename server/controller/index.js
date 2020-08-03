@@ -14,11 +14,12 @@ const retrieveVideo = async function (req, res) {
   if (!req.params.id) {
     res.status(400).json({message: `No video found with id, ${req.params.id}`})
   } else {
-    getVideoTitle(req.params.id).then((success) => {
+    getVideoTitle(req.params.id).then((details) => {
+      const title = Array.isArray(details) && details.length > 0 ? details[0].title : ''
       const dir = `${RETRIEVAL_VIDEO_PATH}${ASSETS_FOLDER}/${VIDEO_FOLDER}/${req.params.id}`
       fs.readdir(dir, (err, files) => {
         if (err) {
-          res.status(500).json({message: `Failed to retrieve video, ${err.toString()}`})
+          res.status(500).json({message: `Failed to retrieve video, ${err.toString()}`, files: [], title})
         } else {
           const mapper = {'4k': '', '240p': '', '480p': '', '1080p': ''}
           Object.keys((mapper)).forEach((key) => {
@@ -29,7 +30,7 @@ const retrieveVideo = async function (req, res) {
               }
             }
           })
-          res.json({message: 'files processing', files: mapper})
+          res.json({message: 'files processing', files: mapper, title})
         }
       })
     }).catch((ex) => {

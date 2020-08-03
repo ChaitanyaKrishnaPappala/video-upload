@@ -8,7 +8,7 @@ import {toast} from 'react-toastify'
 import {Map} from 'immutable'
 import {fetchVideoFiles} from '../redux/actions'
 
-const Index = ({fetchVideoFiles, match, files, retrieveErrorMsg}) => {
+const Index = ({fetchVideoFiles, match, files, retrieveErrorMsg, title}) => {
   const {params} = match
   const id = params ? params.id : ''
   const [resolution, setResolution] = useState([{label: '480p', value: '480p'}])
@@ -45,6 +45,9 @@ const Index = ({fetchVideoFiles, match, files, retrieveErrorMsg}) => {
     <div className='container'>
       <div className='row'>
         <div className='col-md-6'>
+          <h2 style={{color: '#000'}}>{title}</h2>
+        </div>
+        <div className='col-md-6'>
           <Player url={url} />
         </div>
         <div className='col-md-8'>
@@ -61,6 +64,7 @@ const Index = ({fetchVideoFiles, match, files, retrieveErrorMsg}) => {
 Index.propTypes = {
   fetchVideoFiles: PropTypes.func,
   retrieveErrorMsg: PropTypes.string,
+  title: PropTypes.string,
   id: PropTypes.string,
   match: PropTypes.object,
   files: PropTypes.instanceOf(Map)
