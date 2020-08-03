@@ -6,7 +6,7 @@ In the project directory, you can run:
 
 ### `yarn`
 
-Run yarn to install all project dependencies. Create a .env file (look at .env.SAMPLE for reference). The keys in .env.SAMPLE are populated with dummy values,
+Run `yarn` to install all project dependencies. Create a .env file (look at .env.SAMPLE for reference). The keys in .env.SAMPLE are populated with dummy values,
 please add real working values for .env file.
 
 ### `yarn start`
@@ -36,13 +36,13 @@ After installing the required packages and configuring postgres with a user,
 Follow the below instructions to get started with other database setup:
 
 Create a role:
-CREATE ROLE username WITH LOGIN PASSWORD 'quoted password'
+`CREATE ROLE username WITH LOGIN PASSWORD 'quoted password'`
 
 Create a database:
-CREATE DATABASE videos;
+`CREATE DATABASE videos;`
 
 Create a table:
-CREATE TABLE upload (ID SERIAL PRIMARY KEY, uuid   title VARCHAR(200));
+`CREATE TABLE upload (ID SERIAL PRIMARY KEY, uuid   title VARCHAR(200));`
 
 Please create a .env file and setup other details like username and password.
 
@@ -50,7 +50,7 @@ Please create a .env file and setup other details like username and password.
 ### `Upload Videos`
 
 Videos can be uploaded by using the following command in the video-upload project (root folder)
-yarn build testupload /fake/filepath
+`yarn build testupload /fake/filepath`
 
 It takes two arguments - title of the video and the source path of the video to be uploaded
 
