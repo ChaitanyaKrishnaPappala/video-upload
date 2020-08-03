@@ -4,6 +4,11 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `yarn`
+
+Run `yarn` to install all project dependencies. Create a .env file (look at .env.SAMPLE for reference). The keys in .env.SAMPLE are populated with dummy values,
+please add real working values for .env file.
+
 ### `yarn start`
 
 Runs the app in the development mode.<br />
@@ -12,57 +17,51 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `yarn test`
+This will even start the mock server (backend) on port 3001
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### `Database Setup`
+Postgres is used as database for this project.
+Steps to setup:
 
-### `yarn build`
+Install postgres on windows or mac.
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+For mac:
+Follow this link:
+https://www.codementor.io/@engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+For windows:
+Follow this link: https://www.microfocus.com/documentation/idol/IDOL_12_0/MediaServer/Guides/html/English/Content/Getting_Started/Configure/_TRN_Set_up_PostgreSQL.htm
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+After installing the required packages and configuring postgres with a user,
+Follow the below instructions to get started with other database setup:
 
-### `yarn eject`
+Create a role:
+`CREATE ROLE username WITH LOGIN PASSWORD 'quoted password'`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Create a database:
+`CREATE DATABASE videos;`
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Create a table:
+`CREATE TABLE upload (ID SERIAL PRIMARY KEY, uuid   title VARCHAR(200));`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Please create a .env file and setup other details like username and password.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+### `Upload Videos`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Videos can be uploaded by using the following command in the video-upload project (root folder)
+`yarn upload testupload /fake/filepath`
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It takes two arguments - title of the video and the source path of the video to be uploaded
 
-### Code Splitting
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
 
-### Analyzing the Bundle Size
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
 
-### Making a Progressive Web App
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
 
-### Advanced Configuration
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
 
-### Deployment
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
 
-### `yarn build` fails to minify
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
