@@ -50,6 +50,7 @@
   },
   "scripts": {
     "start": "nodemon server/index.js & react-scripts start",
+    "upload": "cd server && nodemon upload.js",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

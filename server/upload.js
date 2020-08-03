@@ -56,4 +56,6 @@ if (process.argv.length >= 4) {
   }).catch((err) => {
     throw new Error(`Failed to store the file, ${err.toString()}`)
   })
+} else {
+  throw new Error('Provide title and path of the video')
 }
