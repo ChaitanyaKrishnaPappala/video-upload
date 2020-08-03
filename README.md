@@ -50,7 +50,7 @@ Please create a .env file and setup other details like username and password.
 ### `Upload Videos`
 
 Videos can be uploaded by using the following command in the video-upload project (root folder)
-`yarn build testupload /fake/filepath`
+`yarn upload testupload /fake/filepath`
 
 It takes two arguments - title of the video and the source path of the video to be uploaded
 
